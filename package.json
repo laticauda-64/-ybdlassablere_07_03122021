@@ -1,0 +1,29 @@
+{
+    "name": "les-petits-plats",
+    "version": "1.0.0",
+    "description": "Porjet n°7 parcours FrontEnd Developper OpenClassRooms",
+    "main": "public/js/index.js",
+    "scripts": {
+        "sass": "sass --watch ./src/sass/:./public/css"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/laticauda-64/ybdlassablere_07_03122021.git"
+    },
+    "keywords": [
+        "openclassrooms",
+        "p7"
+    ],
+    "author": "YoannBDL",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/laticauda-64/ybdlassablere_07_03122021/issues"
+    },
+    "homepage": "https://github.com/laticauda-64/ybdlassablere_07_03122021#readme",
+    "devDependencies": {
+        "sass": "^1.44.0"
+    },
+    "dependencies": {
+        "prettier": "^2.5.0"
+    }
+}
