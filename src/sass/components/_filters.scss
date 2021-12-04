@@ -1,8 +1,8 @@
-.tag {
+.filterOption {
     display: inline-flex;
     align-items: center;
-    padding: 10px 20px;
-    margin: 0 15px 15px 0;
+    padding: 23px 20px;
+    margin: 0 15px 10px 0;
     color: $white;
     font-weight: 700;
     border-radius: 5px;
@@ -16,9 +16,9 @@
     &--green {
         background-color: $green;
     }
-    &--closeIcon {
+    &--arrowIcon {
         border: none;
         background: none;
-        padding: 0 0 0 13px;
+        padding: 0 0 0 30px;
     }
 }

@@ -9,8 +9,9 @@
         border-radius: 5px;
         padding: 22px;
 
-        ::placeholder {
-            color: $light-gray-alt;
+        &::placeholder {
+            color: $black;
+            opacity: 0.25;
         }
     }
 

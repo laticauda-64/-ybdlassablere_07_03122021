@@ -86,8 +86,9 @@ h6 {
   border-radius: 5px;
   padding: 22px;
 }
-.inputElements__box ::placeholder {
-  color: #c7bebe;
+.inputElements__box::placeholder {
+  color: #000000;
+  opacity: 0.25;
 }
 .inputElements__label {
   position: absolute;
@@ -95,16 +96,13 @@ h6 {
   right: 15px;
 }
 
-.tagList {
-  width: 100%;
-}
-
 .tag {
   display: inline-flex;
   align-items: center;
   padding: 10px 20px;
-  margin: 0 15px 10px 0;
+  margin: 0 15px 15px 0;
   color: #ffffff;
+  font-weight: 700;
   border-radius: 5px;
 }
 .tag--blue {
@@ -120,6 +118,30 @@ h6 {
   border: none;
   background: none;
   padding: 0 0 0 13px;
+}
+
+.filterOption {
+  display: inline-flex;
+  align-items: center;
+  padding: 23px 20px;
+  margin: 0 15px 10px 0;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 5px;
+}
+.filterOption--blue {
+  background-color: #3282f7;
+}
+.filterOption--red {
+  background-color: #ed6454;
+}
+.filterOption--green {
+  background-color: #68d9a4;
+}
+.filterOption--arrowIcon {
+  border: none;
+  background: none;
+  padding: 0 0 0 30px;
 }
 
 /*# sourceMappingURL=styles.css.map */
