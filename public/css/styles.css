@@ -5,15 +5,11 @@
 body {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: 1240px;
   min-height: 100vh;
   background-color: #ffffff;
   font-family: "Lato", sans-serif;
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 1.2;
-  padding: 0 4% 0;
-  background-color: aquamarine;
+  margin: 0 auto;
 }
 
 /*
@@ -72,7 +68,6 @@ h6 {
 }
 
 .header {
-  background-color: lime;
   display: flex;
   justify-content: center;
 }
@@ -80,8 +75,51 @@ h6 {
   padding: 40px 0 20px;
 }
 
-.inputsElements__box {
+.inputElements {
+  position: relative;
+  margin-bottom: 25px;
+}
+.inputElements__box {
   width: 100%;
+  background-color: #e7e7e7;
+  border: none;
+  border-radius: 5px;
+  padding: 22px;
+}
+.inputElements__box ::placeholder {
+  color: #c7bebe;
+}
+.inputElements__label {
+  position: absolute;
+  top: calc(50% - 16px);
+  right: 15px;
+}
+
+.tagList {
+  width: 100%;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 0 15px 10px 0;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.tag--blue {
+  background-color: #3282f7;
+}
+.tag--red {
+  background-color: #ed6454;
+}
+.tag--green {
+  background-color: #68d9a4;
+}
+.tag--closeIcon {
+  border: none;
+  background: none;
+  padding: 0 0 0 13px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -1,8 +1,22 @@
-.inputsElements {
+.inputElements {
+    position: relative;
+    margin-bottom: 25px;
+
     &__box {
         width: 100%;
+        background-color: $light-gray;
+        border: none;
+        border-radius: 5px;
+        padding: 22px;
+
+        ::placeholder {
+            color: $light-gray-alt;
+        }
     }
 
     &__label {
+        position: absolute;
+        top: calc(50% - 16px);
+        right: 15px;
     }
 }

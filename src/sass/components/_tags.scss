@@ -1,0 +1,23 @@
+.tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 0 15px 10px 0;
+    color: $white;
+    border-radius: 5px;
+
+    &--blue {
+        background-color: $blue;
+    }
+    &--red {
+        background-color: $red;
+    }
+    &--green {
+        background-color: $green;
+    }
+    &--closeIcon {
+        border: none;
+        background: none;
+        padding: 0 0 0 13px;
+    }
+}
