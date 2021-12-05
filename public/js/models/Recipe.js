@@ -8,11 +8,6 @@ export default class Recipe {
     }
 
     extractIngredients(ingredients) {
-        // let ingredientsList = '';
-        // for (const e of ingredients) {
-        //     ingredientsList += `<p><strong>${e.ingredient}:</strong> ${e.quantity} ${e.unit}</p>`;
-        // }
-
         return ingredients.map((e) => `<p><strong>${e.ingredient}:</strong> ${e.quantity || ''} ${e.unit || ''}</p>`).join('');
     }
 
