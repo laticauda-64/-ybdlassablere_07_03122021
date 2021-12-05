@@ -1,6 +1,6 @@
 .recipe {
     width: 380px;
-    height: 364px;
+    height: auto;
     background-color: $light-gray;
     border-radius: 5px;
     margin-bottom: 50px;
@@ -26,6 +26,7 @@
         font-weight: 700;
         margin-left: auto;
         padding-left: 27px;
+        flex-shrink: 0;
 
         &::before {
             position: absolute;
@@ -43,7 +44,6 @@
         display: flex;
         font-size: 12px;
         padding: 0 20px 20px 20px;
-        max-height: 110px;
         overflow: hidden;
         text-overflow: ellipsis;
 
@@ -53,6 +53,7 @@
         &__instructions {
             flex-basis: 49%;
             margin-left: auto;
+            max-height: 110px;
 
             p {
                 overflow-wrap: anywhere;

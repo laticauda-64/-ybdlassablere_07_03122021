@@ -156,7 +156,7 @@ h6 {
 
 .recipe {
   width: 380px;
-  height: 364px;
+  height: auto;
   background-color: #e7e7e7;
   border-radius: 5px;
   margin-bottom: 50px;
@@ -179,6 +179,7 @@ h6 {
   font-weight: 700;
   margin-left: auto;
   padding-left: 27px;
+  flex-shrink: 0;
 }
 .recipe__time::before {
   position: absolute;
@@ -194,7 +195,6 @@ h6 {
   display: flex;
   font-size: 12px;
   padding: 0 20px 20px 20px;
-  max-height: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -204,6 +204,7 @@ h6 {
 .recipe__body__instructions {
   flex-basis: 49%;
   margin-left: auto;
+  max-height: 110px;
 }
 .recipe__body__instructions p {
   overflow-wrap: anywhere;
