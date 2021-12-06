@@ -1,34 +1,36 @@
 /**
- * Show / Hide selected filter on clickÒ
+ * Show / Hide selected filter on click
  */
 
 export default class ToggleFilters {
     constructor() {
-        this.dom = {
-            filterButtons: document.querySelectorAll('.filterOption'),
+        // Close current opened filter on click outside the element
+        // I know it's bad to store it in Window but can't figure out how to remove this listenner without this trick
+        window.clickOutSide = (e) => {
+            if (!e.target.closest('.filterOption.open')) {
+                document.querySelectorAll('.filterOption').forEach((e) => e.classList.remove('open'));
+                document.documentElement.removeEventListener('click', window.clickOutSide);
+            }
         };
+
+        document.querySelectorAll('.filterOption').forEach((e) => e.addEventListener('click', this.toggleSelectedFilter));
     }
 
     toggleSelectedFilter(e) {
-        console.log(e);
-        if ((e.target.nodeName === 'IMG' || e.target.nodeName === 'BUTTON') && this.classList.contains('open')) {
-            this.classList.remove('open');
+        const currentFilter = e.target.closest('.filterOption');
+
+        // Close current filter if click on the arrow detected
+        if ((e.target.nodeName === 'IMG' || e.target.nodeName === 'BUTTON') && currentFilter.classList.contains('open')) {
+            currentFilter.classList.remove('open');
             return;
         }
-        e.preventDefault();
-
+        // Close all the filters in case other are open
         document.querySelectorAll('.filterOption').forEach((e) => e.classList.remove('open'));
-        this.classList.add('open');
 
-        document.documentElement.addEventListener('click', (e) => {
-            if (!this.contains(e.target)) {
-                this.classList.remove('open');
-                return;
-            }
-        });
-    }
+        // Finally open the current one
+        currentFilter.classList.add('open');
 
-    init() {
-        this.dom.filterButtons.forEach((e) => e.addEventListener('click', this.toggleSelectedFilter));
+        // And add a EventListenner on the document to detect 'outside' click
+        document.documentElement.addEventListener('click', window.clickOutSide);
     }
 }

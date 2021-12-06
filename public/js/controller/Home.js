@@ -21,6 +21,6 @@ export default class App {
         new DisplayRecipes(this.data).launch();
 
         // Filters
-        new ToggleFilters().init();
+        new ToggleFilters();
     }
 }
