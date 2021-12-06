@@ -3,6 +3,7 @@
  */
 import Api from '../models/Api.js';
 import DisplayRecipes from '../view/DisplayRecipes.js';
+import ToggleFilters from '../view/filters/ToggleFilters.js';
 
 export default class App {
     constructor() {
@@ -18,5 +19,8 @@ export default class App {
 
         // Display all recipes in dom
         new DisplayRecipes(this.data).launch();
+
+        // Filters
+        new ToggleFilters().init();
     }
 }

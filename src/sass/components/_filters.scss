@@ -1,11 +1,54 @@
+.filters {
+    display: flex;
+    align-items: flex-start;
+}
+
 .filterOption {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     padding: 20px;
     margin: 0 15px 10px 0;
     color: $white;
     font-weight: 700;
     border-radius: 5px;
+    width: auto;
+    transition: width 0.3s ease-in-out;
+
+    &__inputGroup {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        .filterOption.open & {
+            margin-bottom: 20px;
+        }
+    }
+
+    label {
+        padding-right: 20px;
+        display: inline;
+    }
+
+    &.open {
+        width: 667px;
+        flex-direction: column;
+
+        label {
+            display: none;
+        }
+    }
+
+    &__searchInput {
+        border: none;
+        color: inherit;
+        background-color: inherit;
+        outline: none;
+        width: 100%;
+
+        .filterOption:not(.open) & {
+            display: none;
+        }
+    }
 
     &--blue {
         background-color: $blue;
@@ -17,8 +60,33 @@
         background-color: $green;
     }
     &--arrowIcon {
+        cursor: pointer;
         border: none;
         background: none;
-        padding: 0 0 0 30px;
+        margin-left: auto;
+        transition: transform 0.3s ease-in-out;
+        transform: rotate(0);
+
+        .filterOption.open & {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__searchTags {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 3px;
+        max-height: 300px;
+        overflow-y: auto;
+        gap: 0.625rem;
+        scrollbar-width: thin;
+
+        .filterOption:not(.open) & {
+            display: none;
+        }
+
+        li {
+            cursor: pointer;
+        }
     }
 }

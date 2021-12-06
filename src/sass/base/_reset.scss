@@ -42,6 +42,15 @@ h6 {
     overflow-wrap: break-word;
 }
 
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    list-style: none;
+}
+
 // Only for Js Framework (react, next)
 #root,
 #__next {

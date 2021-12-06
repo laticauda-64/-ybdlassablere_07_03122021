@@ -9,9 +9,11 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+        <script src="public/js/utils/BindToClass.js" type="text/javascript"></script>
         <script src="public/js/main.js" type="module" defer></script>
     </head>
     <body>
+        <!-- Logo du site -->
         <header class="header">
             <a href="#" class="header__logo"">
                 <img src="public/img/logo.svg" alt="Logo du site">
@@ -19,6 +21,7 @@
         </header>
         <main>
             <section class="search">
+                <!-- Zone de recherche -->
                 <div class="inputElements">
                     <input
                         type="text"
@@ -30,6 +33,7 @@
                         <img src="public/img/search.svg" alt="Search icon">
                     </label>
                 </div>
+                <!-- Liste des filtres en cours sous forme de tags -->
                 <div class="taglist">
                     <span class="tag tag--blue">
                         Coco
@@ -50,53 +54,51 @@
                         </button>
                     </span>
                 </div>
+                <!-- Boutons expansibles en liste déroulante + champs de recherche -->
                 <div class="filters">
                     <div class="filterOption filterOption--blue">
-                        <label for="ingredients" class="">Ingredients</label>
-                        <button class="filterOption--arrowIcon">
-                            <img src="public/img/arrowDown.svg" alt="Déplier la liste">
-                        </button>
+                        <div class="filterOption__inputGroup">
+                            <label for="ingredients" class="" >Ingredients</label>
+                            <input type="text" placeholder="Rechercher un ingredient" class="filterOption__searchInput" id="ingredients">
+                            <button class="filterOption--arrowIcon">
+                                <img src="public/img/arrowDown.svg" alt="Déplier la liste">
+                            </button>
+                        </div>
+                        <ul class="filterOption__searchTags">
+                            <li>Lait de coco</li><li>Jus de citron</li><li>Crème de coco</li><li>Sucre</li><li>Glaçons</li><li>Thon rouge (ou blanc)</li><li>Concombre</li><li>Tomate</li><li>Carotte</li><li>Citron vert</li><li>Poulet</li><li>Coulis de tomate</li><li>Oignon</li><li>Poivron rouge</li><li>Huile d'olive</li><li>Riz blanc</li><li>Thon en miettes</li><li>Oeuf dur</li><li>Maïs</li><li>Vinaigrette</li><li>Pâte feuilletée</li><li>Crème fraiche</li><li>Gruyère râpé</li><li>Moutarde de dijon</li><li>Pâte brisée</li><li>Pomme</li><li>Oeuf</li><li>Sucre en poudre</li><li>Sucre vanillé</li><li>Pâte sablée</li><li>Chocolat au lait</li><li>Crème liquide</li><li>Beurre</li><li>Fraise</li><li>Noix</li><li>Chocolat noir</li><li>Farine</li><li>Olives</li><li>Fromage de chèvre</li><li>Vinaigre balsamic</li><li>Basilic</li><li>Roblochon</li><li>Pommes de terre</li><li>Jambon fumé</li><li>Vin blanc sec</li><li>Tomates cerises</li><li>Mozzarella</li><li>Jambon de parme</li><li>Pommes</li><li>Salade verte</li><li>Rhubarbe</li><li>Eau</li><li>Mâche</li><li>Échalote</li><li>Vinaigre de cidre</li><li>Saucisse bretonne ou de toulouse</li><li>Farine de blé noir</li><li>Fromage à raclette</li><li>Lait</li><li>Beurre salé</li><li>Banane</li><li>Pennes</li><li>Huile d'olives</li><li>Pastèque</li><li>Menthe</li><li>Ananas</li><li>Glace à la vanille</li><li>Kiwi</li><li>Citron</li><li>Sucre glace</li><li>Tagliatelles</li><li>Lardons</li><li>Parmesan</li><li>Spaghettis</li><li>Viande hachée 1% de matière grasse</li><li>Vin rouge</li><li>Crème fraîche</li><li>Macaronis</li><li>Mayonnaise</li><li>Chocolat noir en pepites</li><li>Ail</li><li>Oseille</li><li>Vermicelles</li><li>Poireau</li><li>Crême fraîche</li><li>Pois chiches</li><li>Paprika</li><li>Pois cassé</li><li>Haricots verts</li><li>Petits poids</li><li>Pain de mie</li><li>Blanc de dinde</li><li>Emmental</li><li>Gruyère</li><li>Noix de muscade</li><li>Saumon fumé</li><li>Feuilles de laitue</li><li>Fromage blanc</li><li>Patate douce</li><li>Orange</li><li>Cumin</li><li>Courgette</li><li>Lasagnes</li><li>Maïzena</li><li>Viande hachée</li><li>Coulis de tomates</li><li>Pain</li><li>Sucre roux</li><li>Bicarbonate</li><li>Chocolat</li><li>Poires au jus</li><li>Boudoirs</li><li>Beurre fondu</li><li>Pruneaux</li><li>Mascarpone</li><li>Pâte à pizza</li><li>Tomates pelées</li><li>Champignons de paris</li><li>Bananes</li><li>Kiwis</li><li>Mangue</li><li>Miel</li><li>Poudre d'amendes</li></ul>
+                        </ul>
                     </div>
                     <div class="filterOption filterOption--green">
-                        <label for="ingredients" class="">Appareil</label>
+                        <div class="filterOption__inputGroup">
+                        <label for="machine" class="">Appareil</label>
+                        <input type="text" placeholder="Rechercher un appareil" class="filterOption__searchInput" id="machine">
                         <button class="filterOption--arrowIcon">
                             <img src="public/img/arrowDown.svg" alt="Déplier la liste">
                         </button>
+                        </div>
+                        <ul class="filterOption__searchTags">
+                            <li>Blender</li><li>Saladier</li><li>Cocotte</li><li>Cuiseur de riz</li><li>Four</li><li>Casserole</li><li>Poële à crêpe</li><li>Sauteuse</li><li>Casserolle.</li><li>Mixer</li><li>Casserolle</li><li>Poële</li><li>Moule à charlotte</li>
+                        </ul>
                     </div>
                     <div class="filterOption filterOption--red">
-                        <label for="ingredients" class="">Ustensiles</label>
+                        <div class="filterOption__inputGroup">
+                        <label for="ustensils" class="">Ustensiles</label>
+                        <input type="text" placeholder="Rechercher un ustensiles" class="filterOption__searchInput" id="ustensils">
                         <button class="filterOption--arrowIcon">
                             <img src="public/img/arrowDown.svg" alt="Déplier la liste">
                         </button>
+                        </div>
+                        <ul class="filterOption__searchTags">
+                            <li>Cuillère à soupe</li><li>Verres</li><li>Presse citron</li><li>Couteau</li><li>Saladier</li><li>Passoire</li><li>Moule à tarte</li><li>Râpe à fromage</li><li>Fourchette</li><li>Moule à tartelettes (6)</li><li>Casserolle</li><li>Moule à gateaux</li><li>Cuillère en bois</li><li>Plat à gratin</li><li>Économe</li><li>Cuillère à melon</li><li>Poelle à frire</li><li>Louche</li><li>Fouet</li><li>Rouleau à patisserie</li><li>Plaque de cuisson</li><li>Cocotte minute</li><li>Bol</li><li>Spatule</li><li>Moule</li>
+                        </ul>
                     </div>
                 </div>
             </section>
-            <section class="results">
-                <article class="recipe">
-                    <div class="recipe__cover"></div>
-                    <div class="recipe__title">
-                        <h2>Salade de riz</h2>
-                        <span class="recipe__time">50 min</span>
-                    </div>
-                    
-                    <div class="recipe__body">
-                        <div class="recipe__body__ingredients">
-                            <p><strong>Riz blanc:</strong> 500 grammes</p>
-                            <p><strong>Thon en miettes:</strong> 200 grammes</p>
-                            <p><strong>Tomate:</strong> 2</p>
-                            <p><strong>Oeuf dur:</strong> 2</p>
-                            <p><strong>Maïs:</strong> 300 grammes</p>
-                            <p><strong>Vinaigrette:</strong> 5 cl</p>
-                        </div>
-                        <div class="recipe__body__instructions">
-                            <p>
-                                Faire cuire le riz. Une fois le riz cuit, le laisser refroidir. Couper les oeufs dur en quarts ou en lamelle au choix, coupez le tomates en dés, ajouter au riz les oeufs, les tomates, le poisson, le maïs et la vinaigrette. Ajouter au gout de chacun des corniches, olives etc..
-                            </p>
-                        </div>
-                    </div>
-                </article>
 
+            <!-- Affichage des recettes -->
+            <section class="results">
             </section>
+
         </main>
     </body>
 </html>
