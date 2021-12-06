@@ -9,12 +9,7 @@ export default class ToggleFilters {
         };
     }
 
-    detectClickOutside(e) {
-        // if(document.queryCommandIndeterm){}
-    }
-
     toggleSelectedFilter(e) {
-        console.log(this);
         console.log(e);
         if ((e.target.nodeName === 'IMG' || e.target.nodeName === 'BUTTON') && this.classList.contains('open')) {
             this.classList.remove('open');
@@ -22,11 +17,15 @@ export default class ToggleFilters {
         }
         e.preventDefault();
 
-        // if(e.target ===)
-
         document.querySelectorAll('.filterOption').forEach((e) => e.classList.remove('open'));
         this.classList.add('open');
-        document.addEventListener('click', this.detectClickOutside);
+
+        document.documentElement.addEventListener('click', (e) => {
+            if (!this.contains(e.target)) {
+                this.classList.remove('open');
+                return;
+            }
+        });
     }
 
     init() {
