@@ -5,6 +5,8 @@
  * @param {*} data -> list of recipes
  */
 
+import ToggleFilters from '../view/filters/ToggleFilters.js';
+
 const hydrateFilters = (data) => {
     const ingredientsFilterList = document.querySelector('.filterOption--blue .filterOption__searchTags');
     const machinesFilterList = document.querySelector('.filterOption--green .filterOption__searchTags');
@@ -21,11 +23,7 @@ const hydrateFilters = (data) => {
         const cleanList = [...new Set(flattenList)];
 
         // Update DOM
-        cleanList.forEach((e) => {
-            const node = document.createElement('li');
-            node.innerText = e;
-            ingredientsFilterList.appendChild(node);
-        });
+        ToggleFilters.fillFilterList(cleanList, ingredientsFilterList);
     }
 
     function fillMachines() {
@@ -34,14 +32,9 @@ const hydrateFilters = (data) => {
 
         // Remove duplicates
         const cleanList = [...new Set(flattenList)].map((e) => e.toLowerCase()).sort();
-        console.log(cleanList);
 
         // Update DOM
-        cleanList.forEach((e) => {
-            const node = document.createElement('li');
-            node.innerText = e;
-            machinesFilterList.appendChild(node);
-        });
+        ToggleFilters.fillFilterList(cleanList, machinesFilterList);
     }
 
     function fillUstensils() {
@@ -52,11 +45,7 @@ const hydrateFilters = (data) => {
         const cleanList = [...new Set(flattenList)].sort();
 
         // Update DOM
-        cleanList.forEach((e) => {
-            const node = document.createElement('li');
-            node.innerText = e;
-            ustensilsFilterList.appendChild(node);
-        });
+        ToggleFilters.fillFilterList(cleanList, ustensilsFilterList);
     }
 
     fillIngredients();

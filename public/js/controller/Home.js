@@ -10,7 +10,7 @@ export default class App {
     constructor() {
         this.dom = {};
         this.data;
-        this.filter;
+        this.filters;
     }
 
     static async launch() {
@@ -23,7 +23,8 @@ export default class App {
 
         // Filters
         new ToggleFilters();
-
         hydrateFilters(this.data);
+
+        // Search
     }
 }
