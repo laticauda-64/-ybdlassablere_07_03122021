@@ -4,6 +4,7 @@
 import Api from '../models/Api.js';
 import DisplayRecipes from '../view/DisplayRecipes.js';
 import ToggleFilters from '../view/filters/ToggleFilters.js';
+import hydrateFilters from '../models/HydrateFilters.js';
 
 export default class App {
     constructor() {
@@ -22,5 +23,7 @@ export default class App {
 
         // Filters
         new ToggleFilters();
+
+        hydrateFilters(this.data);
     }
 }

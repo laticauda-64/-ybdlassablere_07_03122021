@@ -2,7 +2,7 @@
  * Display all recipes on main page
  */
 
-import Recipe from '../models/Recipe.js';
+import Recipe from './Recipe.js';
 
 export default class DisplayRecipes {
     constructor(data) {
