@@ -222,6 +222,7 @@ li {
 }
 .filterOption__searchTags li {
   cursor: pointer;
+  text-transform: capitalize;
 }
 
 .recipe {
