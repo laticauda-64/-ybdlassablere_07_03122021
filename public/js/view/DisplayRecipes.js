@@ -11,6 +11,7 @@ export default class DisplayRecipes {
 
         // Dom : place to display
         this.dom = document.querySelector('.results');
+        this.dom.innerHTML = '';
     }
 
     launch() {
