@@ -10,5 +10,8 @@
     },
     "rules": {
         "no-unused-vars": ["warn"]
+    },
+    "globals": {
+        "GlobalStore": "writable"
     }
 }

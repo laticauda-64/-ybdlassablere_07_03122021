@@ -7,7 +7,7 @@ import DisplayRecipes from '../view/DisplayRecipes.js';
 import hydrateFilters from './HydrateFilters.js';
 
 const searchEngine = function () {
-    const data = Window.pp_data;
+    const data = GlobalStore.rawData;
     const inputText = this.value.toLowerCase().trim();
 
     const refreshData = (data) => {

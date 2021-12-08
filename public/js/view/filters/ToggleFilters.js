@@ -2,6 +2,8 @@
  * Show / Hide selected filter on click
  */
 
+import Tag from '../tags/Tag.js';
+
 export default class ToggleFilters {
     constructor() {
         // Close current opened filter on click outside the element
@@ -67,6 +69,9 @@ export default class ToggleFilters {
         data.forEach((e) => {
             const node = document.createElement('li');
             node.innerText = e;
+            node.addEventListener('click', function () {
+                new Tag(e, listContainer.dataset.type);
+            });
             listContainer.appendChild(node);
         });
     }

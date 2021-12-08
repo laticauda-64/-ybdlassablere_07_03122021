@@ -10,14 +10,14 @@ import initSearchBox from '../view/search/InitSearchBox.js';
 export default class App {
     static async launch() {
         // Fetch recipes from js file and store it globally
-        Window.pp_data = await new Api().fetchData();
+        GlobalStore.rawData = await new Api().fetchData();
 
         // Display all recipes in dom
-        new DisplayRecipes(Window.pp_data).launch();
+        new DisplayRecipes(GlobalStore.rawData).launch();
 
         // Filters
         new ToggleFilters();
-        hydrateFilters(Window.pp_data);
+        hydrateFilters(GlobalStore.rawData);
 
         // Search
         initSearchBox();
