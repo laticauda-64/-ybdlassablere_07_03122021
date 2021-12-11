@@ -14,6 +14,6 @@
 -   [x] Construire une Api en js pour fetch les data
 -   [x] Les cartes de recettes sont générées depuis un code JS & les data reçue
 -   [x] Concevoir le système de liste déroulante/input pour les critères de filtre
--   [ ] Modifier CSS : affichage recettes avec grid plutot que flex
+-   [x] Modifier CSS : affichage recettes avec grid plutot que flex
 -   [ ] Le système de filtre est fonctionnel : méthode Array.filter()
 -   [ ] Faire une nouvelle branche pour l'algo de tri alternatif
