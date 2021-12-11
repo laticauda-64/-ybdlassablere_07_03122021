@@ -12,14 +12,12 @@ export default class App {
         // Fetch recipes from js file and store it globally
         GlobalStore.rawData = await new Api().fetchData();
 
-        // Display all recipes in dom
-        new DisplayRecipes(GlobalStore.rawData).launch();
-
-        // Filters
+        // Create dom elements for filters & search bar & add listenners
         new ToggleFilters();
-        hydrateFilters(GlobalStore.rawData);
-
-        // Search
         initSearchBox();
+
+        // Hydrate page with store's data
+        new DisplayRecipes(GlobalStore.rawData).launch();
+        hydrateFilters(GlobalStore.rawData);
     }
 }

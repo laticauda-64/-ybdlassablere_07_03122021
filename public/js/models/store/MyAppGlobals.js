@@ -1,1 +1,0 @@
-var GlobalStore = { rawData: [], filteredData: [] };

@@ -10,7 +10,8 @@ const initSearchBox = () => {
     const searchBox = document.getElementById('search');
 
     const searchListenner = function () {
-        const data = GlobalStore.rawData;
+        // If filters tag -> data = dataWithFilters;
+        const data = GlobalStore.dataWithFilters.length > 0 ? GlobalStore.dataWithFilters : GlobalStore.rawData;
         const inputText = this.value.toLowerCase().trim();
 
         const refreshData = (data) => {
@@ -19,14 +20,15 @@ const initSearchBox = () => {
         };
 
         if (inputText.length < 3) {
+            GlobalStore.searchBoxFilter = [];
             refreshData(data);
             return;
         }
 
         // The "famous" algorithme
-        const filteredData = searchEngine(data, inputText);
+        GlobalStore.searchBoxFilter = searchEngine(data, inputText);
 
-        refreshData(filteredData);
+        refreshData(GlobalStore.searchBoxFilter);
     };
 
     searchBox.addEventListener('keyup', searchListenner);

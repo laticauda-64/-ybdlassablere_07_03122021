@@ -8,9 +8,13 @@
 import ToggleFilters from '../view/filters/ToggleFilters.js';
 
 const hydrateFilters = (data) => {
+    // Select dom inputs
     const ingredientsFilterList = document.querySelector('.filterOption--blue .filterOption__searchTags');
     const machinesFilterList = document.querySelector('.filterOption--green .filterOption__searchTags');
     const ustensilsFilterList = document.querySelector('.filterOption--red .filterOption__searchTags');
+
+    // Clear previous data before rendering
+    [ingredientsFilterList, machinesFilterList, ustensilsFilterList].forEach((e) => (e.innerHTML = ''));
 
     function fillIngredients() {
         // Get data
