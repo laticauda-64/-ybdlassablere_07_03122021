@@ -5,7 +5,7 @@
  * @param {*} data -> list of recipes
  */
 
-import ToggleFilters from '../view/filters/ToggleFilters.js';
+import ToggleFilters from '../view/filters/CreateFilterButtons.js';
 
 const hydrateFilters = (data) => {
     // Select dom inputs
@@ -27,7 +27,7 @@ const hydrateFilters = (data) => {
         const cleanList = [...new Set(flattenList)];
 
         // Update DOM
-        ToggleFilters.fillFilterList(cleanList, ingredientsFilterList);
+        ToggleFilters.createFilterListElements(cleanList, ingredientsFilterList);
     }
 
     function fillMachines() {
@@ -38,7 +38,7 @@ const hydrateFilters = (data) => {
         const cleanList = [...new Set(flattenList)].map((e) => e.toLowerCase()).sort();
 
         // Update DOM
-        ToggleFilters.fillFilterList(cleanList, machinesFilterList);
+        ToggleFilters.createFilterListElements(cleanList, machinesFilterList);
     }
 
     function fillUstensils() {
@@ -49,7 +49,7 @@ const hydrateFilters = (data) => {
         const cleanList = [...new Set(flattenList)].sort();
 
         // Update DOM
-        ToggleFilters.fillFilterList(cleanList, ustensilsFilterList);
+        ToggleFilters.createFilterListElements(cleanList, ustensilsFilterList);
     }
 
     fillIngredients();

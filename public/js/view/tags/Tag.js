@@ -2,8 +2,8 @@
  * Tags : create and manage filters tags
  */
 
-import hydrateFilters from '../../models/HydrateFilters.js';
-import searchEngine from '../../models/SearchEngine.js';
+import hydrateFilters from '../../models/hydrateFilters.js';
+import searchEngine from '../../models/searchEngine.js';
 import DisplayRecipes from '../DisplayRecipes.js';
 
 export default class Tag {
@@ -30,7 +30,7 @@ export default class Tag {
         GlobalStore.currentTagList.push(this.tagName);
 
         // Hydrate page
-        new DisplayRecipes(GlobalStore.dataWithFilters).launch();
+        new DisplayRecipes(GlobalStore.dataWithFilters);
         hydrateFilters(GlobalStore.dataWithFilters);
     }
 
@@ -55,7 +55,7 @@ export default class Tag {
         }
 
         // Refresh page
-        new DisplayRecipes(GlobalStore.dataWithFilters).launch();
+        new DisplayRecipes(GlobalStore.dataWithFilters);
         hydrateFilters(GlobalStore.dataWithFilters);
 
         // Remove tag from dom

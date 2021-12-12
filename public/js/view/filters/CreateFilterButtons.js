@@ -63,13 +63,13 @@ export default class ToggleFilters {
         console.log(currentNodeFilter);
     }
 
-    static fillFilterList(data, listContainer) {
+    static createFilterListElements(data, listContainer) {
         listContainer.innerHTML = '';
         // Create the li elements and inject them in dom
         data.forEach((e) => {
             const node = document.createElement('li');
             node.innerText = e;
-            node.addEventListener('click', function () {
+            node.addEventListener('click', () => {
                 new Tag(e, listContainer.dataset.type);
             });
             listContainer.appendChild(node);

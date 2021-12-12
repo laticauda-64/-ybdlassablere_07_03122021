@@ -3,21 +3,23 @@
  */
 import Api from '../models/Api.js';
 import DisplayRecipes from '../view/DisplayRecipes.js';
-import ToggleFilters from '../view/filters/ToggleFilters.js';
-import hydrateFilters from '../models/HydrateFilters.js';
-import initSearchBox from '../view/search/InitSearchBox.js';
+import CreateFilterButtons from '../view/filters/CreateFilterButtons.js';
+import hydrateFilters from '../models/hydrateFilters.js';
+import CreateSearchBox from '../view/search/CreateSearchBox.js';
 
-export default class App {
-    static async launch() {
-        // Fetch recipes from js file and store it globally
-        GlobalStore.rawData = await new Api().fetchData();
+export default async function App() {
+    // Fetch recipes from js file and store it globally
+    GlobalStore.rawData = await Api();
 
-        // Create dom elements for filters & search bar & add listenners
-        new ToggleFilters();
-        initSearchBox();
+    // Create dom elements for search bar
+    new CreateSearchBox();
 
-        // Hydrate page with store's data
-        new DisplayRecipes(GlobalStore.rawData).launch();
-        hydrateFilters(GlobalStore.rawData);
-    }
+    // Create dom elements for filters
+    new CreateFilterButtons();
+
+    // Add correct filters to above form
+    hydrateFilters(GlobalStore.rawData);
+
+    // Create recipes from data
+    new DisplayRecipes(GlobalStore.rawData);
 }

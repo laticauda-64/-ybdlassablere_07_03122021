@@ -5,10 +5,6 @@
 
 import recipes from './data/recipes.js';
 
-export default class Api {
-    constructor() {}
-
-    async fetchData() {
-        return recipes;
-    }
+export default async function Api() {
+    return recipes;
 }

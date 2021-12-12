@@ -3,19 +3,21 @@
  *
  */
 import DisplayRecipes from '../DisplayRecipes.js';
-import hydrateFilters from '../../models/HydrateFilters.js';
-import searchEngine from '../../models/SearchEngine.js';
+import hydrateFilters from '../../models/hydrateFilters.js';
+import searchEngine from '../../models/searchEngine.js';
 
-const initSearchBox = () => {
-    const searchBox = document.getElementById('search');
-
-    const searchListenner = function () {
+export default class CreateSearchBox {
+    constructor() {
+        const searchBox = document.getElementById('search');
+        searchBox.addEventListener('keyup', this.searchListenner);
+    }
+    searchListenner() {
         // If filters tag -> data = dataWithFilters;
         const data = GlobalStore.dataWithFilters.length > 0 ? GlobalStore.dataWithFilters : GlobalStore.rawData;
         const inputText = this.value.toLowerCase().trim();
 
         const refreshData = (data) => {
-            new DisplayRecipes(data).launch();
+            new DisplayRecipes(data);
             hydrateFilters(data);
         };
 
@@ -29,9 +31,5 @@ const initSearchBox = () => {
         GlobalStore.searchBoxFilter = searchEngine(data, inputText);
 
         refreshData(GlobalStore.searchBoxFilter);
-    };
-
-    searchBox.addEventListener('keyup', searchListenner);
-};
-
-export default initSearchBox;
+    }
+}

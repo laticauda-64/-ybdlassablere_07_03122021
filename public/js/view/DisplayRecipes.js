@@ -11,7 +11,10 @@ export default class DisplayRecipes {
 
         // Dom : place to display
         this.dom = document.querySelector('.results');
+        // Clear previous data before injection
         this.dom.innerHTML = '';
+
+        this.launch();
     }
 
     launch() {
