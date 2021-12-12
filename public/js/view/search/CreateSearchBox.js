@@ -3,8 +3,8 @@
  *
  */
 import DisplayRecipes from '../DisplayRecipes.js';
-import hydrateFilters from '../../models/hydrateFilters.js';
 import searchEngine from '../../models/searchEngine.js';
+import CreateFilterButtons from '../filters/CreateFilterButtons.js';
 
 export default class CreateSearchBox {
     constructor() {
@@ -17,8 +17,8 @@ export default class CreateSearchBox {
         const inputText = this.value.toLowerCase().trim();
 
         const refreshData = (data) => {
+            new CreateFilterButtons();
             new DisplayRecipes(data);
-            hydrateFilters(data);
         };
 
         if (inputText.length < 3) {

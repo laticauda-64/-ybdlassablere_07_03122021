@@ -2,9 +2,9 @@
  * Tags : create and manage filters tags
  */
 
-import hydrateFilters from '../../models/hydrateFilters.js';
 import searchEngine from '../../models/searchEngine.js';
 import DisplayRecipes from '../DisplayRecipes.js';
+import CreateFilterButtons from '../filters/CreateFilterButtons.js';
 
 export default class Tag {
     constructor(tagName, type) {
@@ -31,7 +31,7 @@ export default class Tag {
 
         // Hydrate page
         new DisplayRecipes(GlobalStore.dataWithFilters);
-        hydrateFilters(GlobalStore.dataWithFilters);
+        new CreateFilterButtons();
     }
 
     removeTag() {
@@ -56,7 +56,7 @@ export default class Tag {
 
         // Refresh page
         new DisplayRecipes(GlobalStore.dataWithFilters);
-        hydrateFilters(GlobalStore.dataWithFilters);
+        new CreateFilterButtons();
 
         // Remove tag from dom
         this.parentNode.remove();

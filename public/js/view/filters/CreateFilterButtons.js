@@ -4,7 +4,7 @@
 
 import Tag from '../tags/Tag.js';
 
-export default class ToggleFilters {
+export default class CreateFilterButtons {
     constructor() {
         // Close current opened filter on click outside the element
         // I know it's bad to store it in Window but can't figure out how to remove this listenner without this trick
@@ -15,13 +15,70 @@ export default class ToggleFilters {
             }
         };
 
+        // Create filters inside <li> elements
+        this.hydrateFilters();
+
         // Add listeners to open/close filters
-        document.querySelectorAll('.filterOption').forEach((e) => e.addEventListener('click', this.toggleSelectedFilter));
+        document.querySelectorAll('.filterOption').forEach((e) => e.addEventListener('click', this.handleClickOnFilter));
         // Add listeners to handle search in filters
         document.querySelectorAll('.filterOption__searchInput').forEach((e) => e.addEventListener('keyup', this.searchInFilter));
     }
 
-    toggleSelectedFilter(e) {
+    // Create DOM <li> elements for each filters
+    hydrateFilters() {
+        const data = GlobalStore.dataWithFilters.length > 0 ? GlobalStore.dataWithFilters : GlobalStore.rawData;
+
+        // Select dom filters buttons
+        const ingredientsFilterList = document.querySelector('.filterOption--blue .filterOption__searchTags');
+        const machinesFilterList = document.querySelector('.filterOption--green .filterOption__searchTags');
+        const ustensilsFilterList = document.querySelector('.filterOption--red .filterOption__searchTags');
+
+        // Clear previous data before rendering
+        [ingredientsFilterList, machinesFilterList, ustensilsFilterList].forEach((e) => (e.innerHTML = ''));
+
+        const fillIngredients = () => {
+            // Get data
+            const flattenList = data
+                .map((e) => e.ingredients)
+                .flat()
+                .map((e) => e.ingredient.toLowerCase());
+
+            // Remove duplicates
+            const cleanList = [...new Set(flattenList)];
+
+            // Update DOM
+            this.createFilterListElements(cleanList, ingredientsFilterList);
+        };
+
+        const fillMachines = () => {
+            // Get data
+            const flattenList = data.map((e) => e.appliance).flat();
+
+            // Remove duplicates
+            const cleanList = [...new Set(flattenList)].map((e) => e.toLowerCase()).sort();
+
+            // Update DOM
+            this.createFilterListElements(cleanList, machinesFilterList);
+        };
+
+        const fillUstensils = () => {
+            // Get data
+            const flattenList = data.map((e) => e.ustensils).flat();
+
+            // Remove duplicates
+            const cleanList = [...new Set(flattenList)].sort();
+
+            // Update DOM
+            this.createFilterListElements(cleanList, ustensilsFilterList);
+        };
+
+        fillIngredients();
+        fillMachines();
+        fillUstensils();
+    }
+
+    // Process click on a filter <li> element
+    handleClickOnFilter(e) {
         const currentFilter = e.target.closest('.filterOption');
 
         // Close filter and reset input & options
@@ -48,6 +105,7 @@ export default class ToggleFilters {
         document.documentElement.addEventListener('click', window.clickOutSide);
     }
 
+    // Handle search in filters Buttons
     searchInFilter() {
         const inputText = this.value.toLowerCase().trim();
         const currentNodeFilter = Array.from(this.parentNode.nextElementSibling.children);
@@ -63,7 +121,7 @@ export default class ToggleFilters {
         console.log(currentNodeFilter);
     }
 
-    static createFilterListElements(data, listContainer) {
+    createFilterListElements(data, listContainer) {
         listContainer.innerHTML = '';
         // Create the li elements and inject them in dom
         data.forEach((e) => {
