@@ -23,6 +23,11 @@ export default class CreateSearchBox {
         };
 
         if (inputText.length < 3) {
+            if (GlobalStore.currentTagList.length === 0) {
+                GlobalStore.searchBoxFilter = [];
+                refreshData(GlobalStore.rawData);
+                return;
+            }
             GlobalStore.searchBoxFilter = [];
             refreshData(data);
             return;
