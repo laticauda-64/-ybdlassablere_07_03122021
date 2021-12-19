@@ -30,6 +30,17 @@ export default class CreateSearchBox {
         // The "famous" algorithme
         GlobalStore.searchBoxFilter = searchEngine(data, inputText);
 
+        // Refresh data throught whole site (filters, results, etc)
         refreshData(GlobalStore.searchBoxFilter);
+
+        // If results from Search = null > display error msg on page
+        if (GlobalStore.searchBoxFilter.length === 0) {
+            const node = document.createElement('p');
+            node.classList.add('foundError');
+            node.innerText =
+                'Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc...';
+            document.querySelector('.results').appendChild(node);
+            console.log('No results');
+        }
     }
 }
