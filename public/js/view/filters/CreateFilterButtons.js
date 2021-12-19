@@ -102,7 +102,11 @@ export default class CreateFilterButtons {
         closeFilters();
 
         // Finally open the current one
-        currentFilter.classList.add('open');
+        try {
+            currentFilter.classList.add('open');
+        } catch (error) {
+            return error;
+        }
 
         // And add a EventListenner on the document to detect 'outside' click
         document.documentElement.addEventListener('click', window.clickOutSide);
