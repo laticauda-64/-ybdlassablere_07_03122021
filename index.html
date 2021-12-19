@@ -10,13 +10,13 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
         <script src="public/js/models/store/GlobalStore.js" type="text/javascript"></script>
-        <script src="public/js/main.js" type="module" defer></script>
+        <script src="public/js/main.js" type="module"></script>
     </head>
     <body>
         <!-- Logo du site -->
         <header class="header">
-            <a href="#" class="header__logo"">
-                <img src="public/img/logo.svg" alt="Logo du site">
+            <a href="#" class="header__logo">
+                <img src="public/img/logo.svg" alt="Logo du site" />
             </a>
         </header>
         <main>
@@ -30,54 +30,48 @@
                         placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette"
                     />
                     <label class="inputElements__label" for="search">
-                        <img src="public/img/search.svg" alt="Search icon">
+                        <img src="public/img/search.svg" alt="Search icon" />
                     </label>
                 </div>
                 <!-- Liste des filtres en cours sous forme de tags -->
-                <div class="taglist">
-                </div>
+                <div class="taglist"></div>
                 <!-- Boutons expansibles en liste déroulante + champs de recherche -->
                 <div class="filters">
                     <div class="filterOption filterOption--blue">
                         <div class="filterOption__inputGroup">
-                            <label for="ingredients" class="" >Ingredients</label>
-                            <input type="text" placeholder="Rechercher un ingredient" class="filterOption__searchInput" id="ingredients">
+                            <label for="ingredients" class="">Ingredients</label>
+                            <input type="text" placeholder="Rechercher un ingredient" class="filterOption__searchInput" id="ingredients" />
                             <button class="filterOption--arrowIcon">
-                                <img src="public/img/arrowDown.svg" alt="Déplier la liste">
+                                <img src="public/img/arrowDown.svg" alt="Déplier la liste" />
                             </button>
                         </div>
-                        <ul class="filterOption__searchTags" data-type="ingredient">
-                        </ul>
+                        <ul class="filterOption__searchTags" data-type="ingredient"></ul>
                     </div>
                     <div class="filterOption filterOption--green">
                         <div class="filterOption__inputGroup">
-                        <label for="machine" class="">Appareil</label>
-                        <input type="text" placeholder="Rechercher un appareil" class="filterOption__searchInput" id="machine">
-                        <button class="filterOption--arrowIcon">
-                            <img src="public/img/arrowDown.svg" alt="Déplier la liste">
-                        </button>
+                            <label for="machine" class="">Appareil</label>
+                            <input type="text" placeholder="Rechercher un appareil" class="filterOption__searchInput" id="machine" />
+                            <button class="filterOption--arrowIcon">
+                                <img src="public/img/arrowDown.svg" alt="Déplier la liste" />
+                            </button>
                         </div>
-                        <ul class="filterOption__searchTags" data-type="machine">
-                        </ul>
+                        <ul class="filterOption__searchTags" data-type="machine"></ul>
                     </div>
                     <div class="filterOption filterOption--red">
                         <div class="filterOption__inputGroup">
-                        <label for="ustensils" class="">Ustensiles</label>
-                        <input type="text" placeholder="Rechercher un ustensile" class="filterOption__searchInput" id="ustensils">
-                        <button class="filterOption--arrowIcon">
-                            <img src="public/img/arrowDown.svg" alt="Déplier la liste">
-                        </button>
+                            <label for="ustensils" class="">Ustensiles</label>
+                            <input type="text" placeholder="Rechercher un ustensile" class="filterOption__searchInput" id="ustensils" />
+                            <button class="filterOption--arrowIcon">
+                                <img src="public/img/arrowDown.svg" alt="Déplier la liste" />
+                            </button>
                         </div>
-                        <ul class="filterOption__searchTags" data-type="ustensil">
-                        </ul>
+                        <ul class="filterOption__searchTags" data-type="ustensil"></ul>
                     </div>
                 </div>
             </section>
 
             <!-- Affichage des recettes -->
-            <section class="results">
-            </section>
-
+            <section class="results"></section>
         </main>
     </body>
 </html>
