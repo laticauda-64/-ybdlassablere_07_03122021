@@ -17,6 +17,6 @@
 -   [x] Modifier CSS : affichage recettes avec grid plutot que flex
 -   [x] Le système de filtre est fonctionnel : méthode Array.filter()
 -   [x] Faire une nouvelle branche pour l'algo de tri alternatif
--   [ ] Le code passe le validateur W3C
+-   [x] Le code passe le validateur W3C
 -   [ ] Affichez message quand pas de résultats : « Aucune recette ne correspond à votre critère... vous pouvez
         chercher « tarte aux pommes », « poisson », etc.
