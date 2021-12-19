@@ -2,7 +2,7 @@
  * Tags : create and manage filters tags
  */
 
-import searchEngine from '../../models/SearchEngine.js';
+import searchEngine from '../../models/searchEngine.js';
 import searchEngineForTags from '../../models/searchEngineForTags.js';
 import DisplayRecipes from '../DisplayRecipes.js';
 import CreateFilterButtons from '../filters/CreateFilterButtons.js';
