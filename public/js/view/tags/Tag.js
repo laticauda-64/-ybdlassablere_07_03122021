@@ -2,7 +2,8 @@
  * Tags : create and manage filters tags
  */
 
-import searchEngine from '../../models/searchEngine.js';
+import searchEngine from '../../models/SearchEngine.js';
+import searchEngineForTags from '../../models/searchEngineForTags.js';
 import DisplayRecipes from '../DisplayRecipes.js';
 import CreateFilterButtons from '../filters/CreateFilterButtons.js';
 
@@ -21,13 +22,14 @@ export default class Tag {
     }
 
     filterDataStore() {
-        GlobalStore.dataWithFilters = searchEngine(
+        GlobalStore.dataWithFilters = searchEngineForTags(
             GlobalStore.dataWithFilters.length > 0 ? GlobalStore.dataWithFilters : GlobalStore.rawData,
-            this.tagName
+            this.tagName,
+            this.type
         );
 
         // Add filter to the list of current filters
-        GlobalStore.currentTagList.push(this.tagName);
+        GlobalStore.currentTagList.push(this.tagName.toLowerCase());
 
         // Hydrate page
         new DisplayRecipes(GlobalStore.dataWithFilters);

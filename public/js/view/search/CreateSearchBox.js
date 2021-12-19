@@ -17,6 +17,7 @@ export default class CreateSearchBox {
         const inputText = this.value.toLowerCase().trim();
 
         const refreshData = (data) => {
+            GlobalStore.dataWithFilters = data;
             new CreateFilterButtons();
             new DisplayRecipes(data);
         };
@@ -27,6 +28,7 @@ export default class CreateSearchBox {
             return;
         }
 
+        // Global store is updated
         // The "famous" algorithme
         GlobalStore.searchBoxFilter = searchEngine(data, inputText);
 

@@ -7,7 +7,6 @@ import Tag from '../tags/Tag.js';
 export default class CreateFilterButtons {
     constructor() {
         // Close current opened filter on click outside the element
-        // I know it's bad to store it in Window but can't figure out how to remove this listenner without this trick
         window.clickOutSide = (e) => {
             if (!e.target.closest('.filterOption.open')) {
                 document.querySelectorAll('.filterOption').forEach((e) => e.classList.remove('open'));
@@ -43,8 +42,8 @@ export default class CreateFilterButtons {
                 .flat()
                 .map((e) => e.ingredient.toLowerCase());
 
-            // Remove duplicates
-            const cleanList = [...new Set(flattenList)];
+            // Remove duplicates & current filters
+            const cleanList = [...new Set(flattenList)].filter((e) => !GlobalStore.currentTagList.includes(e));
 
             // Update DOM
             this.createFilterListElements(cleanList, ingredientsFilterList);
@@ -52,10 +51,14 @@ export default class CreateFilterButtons {
 
         const fillMachines = () => {
             // Get data
-            const flattenList = data.map((e) => e.appliance).flat();
+            const flattenList = data
+                .map((e) => e.appliance)
+                .flat()
+                .map((e) => e.toLowerCase());
 
-            // Remove duplicates
-            const cleanList = [...new Set(flattenList)].map((e) => e.toLowerCase()).sort();
+            // Remove duplicates & current filters
+            // const cleanList = [...new Set(flattenList)].map((e) => e.toLowerCase()).sort();
+            const cleanList = [...new Set(flattenList)].filter((e) => !GlobalStore.currentTagList.includes(e));
 
             // Update DOM
             this.createFilterListElements(cleanList, machinesFilterList);
@@ -65,8 +68,8 @@ export default class CreateFilterButtons {
             // Get data
             const flattenList = data.map((e) => e.ustensils).flat();
 
-            // Remove duplicates
-            const cleanList = [...new Set(flattenList)].sort();
+            // Remove duplicates & current filters
+            const cleanList = [...new Set(flattenList)].filter((e) => !GlobalStore.currentTagList.includes(e)).sort();
 
             // Update DOM
             this.createFilterListElements(cleanList, ustensilsFilterList);
