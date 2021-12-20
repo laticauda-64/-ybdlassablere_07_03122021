@@ -8,7 +8,7 @@
 <br /><br />
 
 <details>
-<summary>Détails de la Mission :</summary>
+<summary><h2>Détails de la Mission</h2></summary>
 
 Vous êtes freelance et vous venez d’être missionné par l’entreprise “Les petits plats” en temps que Développeur Front-end pour une mission de 3 mois.
 
