@@ -7,11 +7,10 @@
 </p>
 <br /><br />
 
-## Développez un algorithme de recherche en JavaScript
+<details>
+<summary>Détails de la Mission :</summary>
 
 Vous êtes freelance et vous venez d’être missionné par l’entreprise “Les petits plats” en temps que Développeur Front-end pour une mission de 3 mois.
-
-![Logo de l'entreprise Les Petits Plats](https://user.oc-static.com/upload/2020/08/14/15973932905401_logo%20%281%29.png)
 
 Après avoir édité des livres de cuisine pendant plusieurs années, l’entreprise a décidé de se lancer dans un nouveau projet : réaliser son propre site de recettes de cuisine à l’instar de Marmiton ou 750g.
 
@@ -80,3 +79,5 @@ Salut ! Comme tu as pu le voir, la recherche est une fonctionnalité très impor
 > Parfait, merci pour tes conseils JB. Je me lance !
 
 Ça y est, vous avez toutes les informations nécessaires pour démarrer votre travail. C’est parti !
+
+</details>
