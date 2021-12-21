@@ -47,7 +47,7 @@ export default class CreateSearchBox {
             node.innerText =
                 'Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc...';
             document.querySelector('.results').appendChild(node);
-            console.log('No results');
+            // console.log('No results');
         }
     }
 }

@@ -125,7 +125,7 @@ export default class CreateFilterButtons {
 
         currentNodeFilter.forEach((e) => (!e.innerHTML.includes(inputText) ? (e.style = 'display: none') : (e.style = '')));
 
-        console.log(currentNodeFilter);
+        // console.log(currentNodeFilter);
     }
 
     createFilterListElements(data, listContainer) {
